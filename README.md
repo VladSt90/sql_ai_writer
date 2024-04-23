@@ -7,3 +7,9 @@ psql -U postgres -d dvdrental
 CREATE USER test WITH PASSWORD 'test';
 GRANT ALL PRIVILEGES ON DATABASE dvdrental TO test;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO test;
+
+Setup ollama
+Pull llama3 model
+
+Setup poetry
+poetry install
