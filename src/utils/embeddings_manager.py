@@ -1,13 +1,13 @@
 import chromadb
+import os
 from .llm_requests import llm_generate_embedding
 from .logger import logger
 
 
 class EmbeddingsManager:
     def __init__(self) -> None:
-        self.client = chromadb.PersistentClient(
-            path="/Users/vlad/projects/sql_ai_writer/.chromadb"
-        )
+        chromadb_path = os.getcwd() + "/.chromadb"
+        self.client = chromadb.PersistentClient(path=chromadb_path)
         self.collection = self.client.get_or_create_collection(
             name="test", metadata={"hnsw:space": "cosine"}
         )

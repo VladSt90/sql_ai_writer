@@ -61,12 +61,14 @@ CREATE TABLE CourseOfferings (
     FOREIGN KEY (InstructorID) REFERENCES Instructors(InstructorID)
 );
 """
-user_input = "Get all course offerings with unique semester and output course id"
+# user_input = "Get all departments and their instructors"
+# user_input = "I want to get all uniq firstnames of students"
+# user_input = "How much of course offerings each instructor has?"
 
 
 embeddings_manager = EmbeddingsManager()
 if embeddings_manager.contain_embeddings():
-    logger.info("Embeddings was loaded from persistant memory")
+    logger.info("Embeddings was loaded from persistent memory")
 else:
     table_descriptions = generate_table_descriptions(db_context)
     embeddings_manager.add_documents(table_descriptions)
